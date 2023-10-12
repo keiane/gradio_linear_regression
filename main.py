@@ -24,7 +24,7 @@ def regression(iterations, learning):
             w = w - (learning*(h - y[i])*x_vec)
             # J = (loss equation here)
             J = 0.5*(h - y[i])**2
-            j_value += str(J) + "\n"
+            j_value += f"{str(i)}: {str(J)}\n"
         # print('Loss:', J)
 
 
@@ -42,7 +42,7 @@ def regression(iterations, learning):
     return equation, fig, gr.update(value=j_value)
 
 with gr.Blocks() as demo:
-    
+    gr.Markdown("Linear Regression Code")
     # Row that takes in user input
     with gr.Row():
         ite = gr.Slider(label="Number of Iterations", minimum=1, maximum=100, step=1)
