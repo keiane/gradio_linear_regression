@@ -11,7 +11,7 @@ def regression(iterations, learning):
     J = 0 # initialize J, this can be deleted once J is defined in the loop
     w = np.matrix([np.random.rand(),np.random.rand()]) # slope and y-intercept
 
-    j_value = 0
+    j_value = ""
 
     ## Write Linear Regression Code to Solve for w (slope and y-intercept) Here ##
     for p in range (iterations):
@@ -24,7 +24,7 @@ def regression(iterations, learning):
             w = w - (learning*(h - y[i])*x_vec)
             # J = (loss equation here)
             J = 0.5*(h - y[i])**2
-        j_value = J
+            j_value += str(J) + "\n"
         # print('Loss:', J)
 
 
@@ -39,7 +39,7 @@ def regression(iterations, learning):
     plt.xlabel('x')
     plt.ylabel('y')
     plt.show()
-    return equation, fig, j_value
+    return equation, fig, gr.update(value=j_value)
 
 with gr.Blocks() as demo:
     
